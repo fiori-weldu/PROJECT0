@@ -12,7 +12,7 @@ import java.util.Properties;
 public class ConnectionUtil {
 	private static ConnectionUtil cu;
 	private static Properties prop = new Properties();
-	
+	//
 	private ConnectionUtil() {
 		
 	}
