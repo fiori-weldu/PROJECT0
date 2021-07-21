@@ -12,11 +12,11 @@ public class User  {
 	private String username;
 	private String email;
 	private String password;
-	private List<Account> Accounts;
+	private List<Account> account;
 
 
 	public User() {
-		Accounts = new ArrayList<Account>();
+		account = new ArrayList<Account>();
 	}
 	
 	public User(int id, String firstName, String lastName, String email, String password) {
@@ -26,7 +26,7 @@ public class User  {
 		this.username = firstName + lastName + (new Random().nextInt(9000) + 1000);
 		this.email = email;
 		this.password = password;
-		this.Accounts = new ArrayList<Account>();
+		this.account = new ArrayList<Account>();
 	}
 	
 	//Used to send user info to the database because the db auto generates the id
@@ -36,7 +36,7 @@ public class User  {
 		this.username = firstName + lastName + (new Random().nextInt(9000) + 1000);
 		this.email = email;
 		this.password = password;
-		this.Accounts = new ArrayList<Account>();
+		this.account = new ArrayList<Account>();
 	}
 	
 	//User to get user info from the database
@@ -47,7 +47,7 @@ public class User  {
 		this.username = username;
 		this.email = email;
 		this.password = password;
-		this.Accounts = new ArrayList<Account>();
+		this.account = new ArrayList<Account>();
 	}
 
 	public int getId() {
@@ -98,18 +98,25 @@ public class User  {
 		this.password = password;
 	}
 
-	public List<Account> getAccounts() {
-		return Accounts;
+	public List<Account> getAccount() {
+		return account;
 	}
 
-	public void setAccounts(List<Account> Accounts) {
-		this.Accounts = Accounts;
+	public void setAccount(List<Account> account) {
+		this.account = account;
 	}
 
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", username=" + username
-				+ ", email=" + email + ", password=" + password + ", Accounts=" + Accounts + "]";
+				+ ", email=" + email + ", password=" + password + ", account=" + account + "]";
 	}
+
+	//public void setAccount(List<Account> accountList) {
+		// TODO Auto-generated method stub
+		
+	
+
+	
 	
 }

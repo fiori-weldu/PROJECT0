@@ -1,10 +1,15 @@
 package com.services;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import com.banking.models.User;
 import com.dao.userDao;
+import com.exception.InvalidCredentialsException;
+import com.exception.UserDoesNotExistException;
 import com.exception.UserNameAlreadyExistsException;
+
+import Logging.Logging;
  
 
 
@@ -22,12 +27,12 @@ private userDao uDao;
 		
 		try {
 			uDao.createUser(u);
-			//Logging.logger.info("New user has registered");
+			Logging.logger.info("New user has registered");
 			System.out.println("New user has registered");
 		} catch(SQLException e) {
-			//Logging.logger.warn("Username created that already exists in the database");
-			//throw new UserNameAlreadyExistsException();
-			System.out.println("Username created that already exists in the database");
+			Logging.logger.warn("Username created that already exists in the database");
+			throw new UserNameAlreadyExistsException();
+		
 		}
 		
 		return u;
@@ -40,20 +45,23 @@ private userDao uDao;
 		User u = uDao.getUserByUsername(username);
 		
 		if(u.getId() == 0) {
-			//Logging.logger.warn("User tried loggging in that does not exist");
-			//throw new UserDoesNotExistException();
-			System.out.println("User tried loggging in that does not exist");
+			Logging.warn("User tried loggging in that does not exist");
+			throw new UserDoesNotExistException();
+			
 		}
 		else if(!u.getPassword().equals(password)) {
-			//Logging.logger.warn("User tried to login with invalid credentials");
-			//throw new InvalidCredentialsException();
-			System.out.println("User tried to login with invalid credentials");
+			Logging.logger.warn("User tried to login with invalid credentials");
+			throw new InvalidCredentialsException();
+			
 		}
 		else {
-			//Logging.logger.info("User was logged in");
-			System.out.println("User was logged in");
+			Logging.logger.info("User was logged in");
 			return u;
 		}
-		return u;
+	}
+
+	public List<User> getAllUsers() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

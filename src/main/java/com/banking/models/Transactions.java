@@ -1,5 +1,5 @@
 package com.banking.models;
 
-public class Transaction {
+public class Transactions {
 
 }

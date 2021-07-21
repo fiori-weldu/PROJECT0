@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+//import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,8 +28,8 @@ ConnectionUtil conUtil = ConnectionUtil.getConnectionUtil();
 			String sql = "SELECT * FROM users";
 			
 			//We need to create a statement with this sql string
-			Statement s = con.createStatement();
-			ResultSet rs = s.executeQuery(sql);
+			PreparedStatement ps = con.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
 			
 			while(rs.next()) {
 				userList.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(5), rs.getString(4), rs.getString(6)));

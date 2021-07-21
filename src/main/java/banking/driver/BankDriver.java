@@ -1,26 +1,44 @@
 package banking.driver;
 import java.sql.SQLException;
+import java.util.List;
 //import java.sql.*;
 import java.util.Scanner;
 
+import com.banking.models.Account;
+//import com.bank.services.AccountServices;
 import com.banking.models.User;
+import com.dao.AccountDao;
+import com.dao.AccountDaoDB;
 import com.dao.UserDaoDB;
 import com.dao.userDao;
+import com.services.AccountServices;
 import com.services.UserService;
 
 public class BankDriver {
+	
+	
 	private static userDao uDao=new UserDaoDB();
     private static UserService Userve=new UserService(uDao);
+    private static AccountDao aDao = new AccountDaoDB();
+	private static AccountServices aServ = new AccountServices(aDao);
+	static Account a;
+  
 
     
-	public static void main(String[] args)  {
-//		 userDao uDao=new UserDaoDB();
+	public static void main(String[] args) throws SQLException  {
+//	 userDao uDao=new UserDaoDB();
 //		 UserService uServe=new UserService(uDao);
-//		 uServe.signUp("fio", "weldu", "fioritetet2@gmail.com", "gygy");
-	   // User u= new User("Fiori","weldu","email@.com","fiorina");
-	    //uDao.createUser(u);
-	    //System.out.println(uDao.getAllUsers());
+//	 //uServe.signUp("fio", "weldu", "fioritetet2@gmail.com", "gygy");
+//	    User u= new User("Fiorii","weldu","email@u.com","fiorina");
+//	    uDao.createUser(u);
+//	    System.out.println(uDao.getAllUsers());
 		Scanner in=new Scanner(System.in);
+		System.out.println("###########################");
+		System.out.println();
+		System.out.println("Welcome to FW Bank!");
+		System.out.println();
+		System.out.println("###########################");
+		System.out.println();
 		//this will be used to control our loop
 	boolean  Done=false;
 	User u=null;
@@ -61,46 +79,132 @@ public class BankDriver {
 					// TODO: handle exception
 				}
 			}
-			
+			System.out.println("###########################");
 		}
 		///////////////////////////
 		
 		
-//		 else {
-////			System.out.println("To view posts press 1, to create a post press 2");
-////			int choice = Integer.parseInt(in.nextLine());
-////			//If the user chooses 1, we will show them the list of posts
-////			if(choice == 1) {
-////				List<PostDesplay> posts = pserv.getAllPosts();
-////				for(PostDesplay post: posts) {
-////					System.out.println(post.getUsername() + ":");
-////					System.out.println(post.getContent());
-////					System.out.println();
-////				}
-////				System.out.println("Are you finished? Press 1 for yes, press 2 for no");
-////				choice = Integer.parseInt(in.nextLine());
-////				Done = (choice == 1) ? true : false;
-////			} else {
-////				System.out.println("Please enter your content below:");
-////				String content = in.nextLine();
-//////				Post p = new Post(u.getId(),u.getId(), content);
-////				pserv.addPost(u.getId(), u.getId(), content);
-////				System.out.println("Post was received, are you finished? Press 1 for yes, press 2 for no");
-////				choice = Integer.parseInt(in.nextLine());
-////				Done = (choice == 1) ? true : false;
-////			}
-////		
-////		
-////				
-////			}
-////			
-		///////
+		else {
+		System.out.println("What would you like to do?\n");
+		System.out.println("1. View Account Balance\n"
+				+ "2. Create Account\n"
+				+ "3. Make A Deposit\n"
+				+ "4. Make A withdrawal\n"
+				+ "5. Make A Transfer\n"
+				+ "6. Logout");
+		int choice = Integer.parseInt(in.nextLine());
+		//Switch statement for customer options
+		switch(choice) {
 		
-//		}
-	System.out.println("See you later");
-	in.close();
-		}
+			case 1:
+				System.out.println("###########################");
+				aDao.getAccountByUser(u).getCurrentBal();
+			
+			break;
+				
+			case 2:
+				//Create an account 
+				System.out.println("###########################");
+				System.out.println("Please enter your Customer ID");
+				System.out.println("Your Customer ID is: " + u.getId() + ".");
+				int id = Integer.parseInt(in.nextLine());
+				System.out.println(" ");
+				System.out.println("Please enter the type of account you would like to create:\n1.CHECKINGS"
+						+ " \n2.SAVINGS");
+					String acctType = in.nextLine().toUpperCase();
+					
+						if(!"CHECKINGS".equals(acctType) && !"SAVINGS".equals(acctType)) {
+							
+						System.out.println("This is not a valid input, please enter checkings or savings");
+						continue;
+						
+					}
+				System.out.println("The minimium balance to start an account is $50. "
+							+ "Please enter a balance of at least $50.");
+					int balance = Integer.parseInt(in.nextLine());
+		
+					
+					if (balance < 50) {
+						System.out.println("You need at least $50 to make a new account."
+								+ "Please enter a new amount.");
+					}else {
+						
+						try {
+							
+							a = aServ.createAccount(id, balance, acctType);
+							System.out.println("Your " + a.getAccountType().toLowerCase() + " account has been created! Your account number is "
+									 + a.getAccountNum());	
+							
+						}catch (Exception e) {
+					
+						System.out.println("Sorry, we could not process you request.");
+						System.out.println("Please try again later.");
+						System.out.println("###########################");
+						Done = true;
+						}
+					}
+				break;
+			case 3:
+				//deposit 
+				System.out.println("###########################");
+				//System.out.println("Please enter your Account Number for Deposit: ");
+				
+				System.out.println("Accounts: " + aDao.getAccountByUser(u).getAccountNum());
+				System.out.println("Please enter an amount you would like to deposit: ");
+				int deposit = Integer.parseInt(in.nextLine());
+				
+				System.out.println("Deposit amount: $" + deposit);
+				aDao.makeDeposit(u, deposit);
+				
+				System.out.println("Your new account balance is: $" + aDao.getAccountByUser(u).getCurrentBal() + "\n");
+				break;
+				
+			case 4:
+				// withdrawal 
+				System.out.println("###########################");
+				//System.out.println("Please enter your Account Number to withdrow: ");
+				
+				System.out.println("Please enter an amount you would like to withdrow: ");
+				int withdrawal = Integer.parseInt(in.nextLine());
+				
+				System.out.println("withdrow amount: $" + withdrawal);
+				aDao.makeWithdrawl(u, withdrawal);
+				
+				System.out.println("Your new account balance is: $" + aDao.getAccountByUser(u).getCurrentBal() + "\n");
+				break;
+			case 5:
+				//transfer 
+				System.out.println("###########################");
+				aDao.transfer();
+				break;
+			case 6:
+				//logout
+				System.out.println("###########################");
+				Done = true;
+				break;
+				
+			default:
+				
+				System.out.println("Sorry, this is not a valid choice.");
+		}//End switch 
+		
+		if(choice == 0) {
+			
+			List<Account> accountList = null;
+			
+			for(Account account: accountList) {
+				System.out.println(account.getAccountNum() + ":");
+				System.out.println(account.getAccountType());
+				System.out.println();
+			}
+			System.out.println("Are you finished? Press 1 for yes, press 2 for no.");
+			
+			
+	}//End While loop
+	System.out.println("Goodbye.");
+	//in.close();
 
-	}
+	}//End Main Method
+	}}
 
-}
+}//End BankDriver Class

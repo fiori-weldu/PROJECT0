@@ -1,0 +1,71 @@
+2021-07-19 19:07:35 INFO  Logging:28 - New user has registered
+2021-07-19 19:26:12 INFO  Logging:28 - New user has registered
+2021-07-19 19:29:12 INFO  Logging:28 - New user has registered
+2021-07-20 09:31:45 INFO  Logging:29 - New user has registered
+2021-07-20 09:42:41 INFO  Logging:29 - New user has registered
+2021-07-20 09:48:07 INFO  Logging:20 - Your account has been created
+2021-07-20 09:51:41 INFO  Logging:29 - New user has registered
+2021-07-20 09:54:41 INFO  Logging:29 - New user has registered
+2021-07-20 09:57:07 INFO  Logging:20 - Your account has been created
+2021-07-20 11:18:37 INFO  Logging:29 - New user has registered
+2021-07-20 11:19:55 INFO  Logging:20 - Your account has been created
+2021-07-20 11:22:58 INFO  Logging:29 - New user has registered
+2021-07-20 11:23:31 INFO  Logging:20 - Your account has been created
+2021-07-20 11:26:51 INFO  Logging:29 - New user has registered
+2021-07-20 11:27:43 INFO  Logging:29 - New user has registered
+2021-07-20 11:28:11 INFO  Logging:20 - Your account has been created
+2021-07-20 11:39:05 INFO  Logging:57 - User was logged in
+2021-07-20 11:43:54 INFO  Logging:57 - User was logged in
+2021-07-20 11:47:01 INFO  Logging:20 - Your account has been created
+2021-07-20 13:25:39 INFO  Logging:57 - User was logged in
+2021-07-20 13:47:45 INFO  Logging:57 - User was logged in
+2021-07-20 13:50:20 INFO  Logging:57 - User was logged in
+2021-07-20 14:23:32 INFO  Logging:57 - User was logged in
+2021-07-20 14:48:11 INFO  Logging:57 - User was logged in
+2021-07-20 15:03:31 INFO  Logging:57 - User was logged in
+2021-07-20 15:04:14 INFO  Logging:57 - User was logged in
+2021-07-20 16:08:58 INFO  Logging:57 - User was logged in
+2021-07-20 16:17:18 INFO  Logging:57 - User was logged in
+2021-07-20 16:37:14 INFO  Logging:57 - User was logged in
+2021-07-20 16:39:35 INFO  Logging:57 - User was logged in
+2021-07-20 18:59:36 INFO  Logging:57 - User was logged in
+2021-07-20 19:00:54 INFO  Logging:57 - User was logged in
+2021-07-21 06:21:48 INFO  Logging:58 - User was logged in
+2021-07-21 06:25:50 WARN  Logging:53 - User tried to login with invalid credentials
+2021-07-21 06:26:25 INFO  Logging:58 - User was logged in
+2021-07-21 06:40:31 INFO  Logging:58 - User was logged in
+2021-07-21 07:21:55 INFO  Logging:58 - User was logged in
+2021-07-21 07:29:14 INFO  Logging:58 - User was logged in
+2021-07-21 07:36:13 INFO  Logging:58 - User was logged in
+2021-07-21 07:41:55 INFO  Logging:58 - User was logged in
+2021-07-21 07:51:12 INFO  Logging:58 - User was logged in
+2021-07-21 07:59:53 INFO  Logging:58 - User was logged in
+2021-07-21 08:03:11 INFO  Logging:58 - User was logged in
+2021-07-21 08:06:02 INFO  Logging:58 - User was logged in
+2021-07-21 08:06:47 INFO  Logging:134 - Your deposit has been processed.
+2021-07-21 08:32:49 INFO  Logging:58 - User was logged in
+2021-07-21 08:33:30 INFO  Logging:134 - Your deposit has been processed.
+2021-07-21 08:48:53 WARN  Logging:53 - User tried to login with invalid credentials
+2021-07-21 08:50:45 INFO  Logging:58 - User was logged in
+2021-07-21 09:02:04 INFO  Logging:58 - User was logged in
+2021-07-21 09:08:47 INFO  Logging:58 - User was logged in
+2021-07-21 09:10:06 INFO  Logging:136 - Your deposit has been processed.
+2021-07-21 09:16:06 INFO  Logging:58 - User was logged in
+2021-07-21 09:16:28 INFO  Logging:136 - Your deposit has been processed.
+2021-07-21 09:16:36 INFO  Logging:156 - Your withdrow has been processed.
+2021-07-21 09:22:44 INFO  Logging:58 - User was logged in
+2021-07-21 09:23:35 INFO  Logging:136 - Your deposit has been processed.
+2021-07-21 09:24:03 INFO  Logging:156 - Your withdrow has been processed.
+2021-07-21 09:27:28 INFO  Logging:58 - User was logged in
+2021-07-21 09:31:00 INFO  Logging:30 - New user has registered
+2021-07-21 09:32:17 INFO  Logging:30 - New user has registered
+2021-07-21 09:34:56 INFO  Logging:30 - New user has registered
+2021-07-21 09:35:37 INFO  Logging:20 - Your account has been created
+2021-07-21 09:36:34 INFO  Logging:30 - New user has registered
+2021-07-21 09:37:33 INFO  Logging:20 - Your account has been created
+2021-07-21 09:40:27 INFO  Logging:58 - User was logged in
+2021-07-21 09:43:04 INFO  Logging:30 - New user has registered
+2021-07-21 09:44:31 INFO  Logging:20 - Your account has been created
+2021-07-21 09:50:59 INFO  Logging:58 - User was logged in
+2021-07-21 09:52:57 INFO  Logging:136 - Your deposit has been processed.
+2021-07-21 09:53:29 INFO  Logging:156 - Your withdrow has been processed.
